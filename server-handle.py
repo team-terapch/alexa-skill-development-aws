@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_ask import Ask, statement, question, session
-from aws_handler import EC2Manager
+from aws_handle import EC2Manager
 
 app = Flask(__name__)
 ask = Ask(app, "/")
@@ -64,4 +64,4 @@ def stop_app():
 
 
 if __name__ == '__main__':
-app.run(debug=True)
+    app.run(debug=True)
