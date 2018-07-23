@@ -13,7 +13,7 @@ class EC2Manager(object):
 
     def get_active_instance_count(self):
         active_counter = 0
-        print self.reservations
+        print(self.reservations)
         for reservation in self.reservations:
             instance_list = reservation.get('Instances', [])
             for instance in instance_list:
