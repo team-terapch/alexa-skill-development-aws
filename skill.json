@@ -23,14 +23,15 @@
                     "name": "alexa_skill_development_aws",
                     "slots": [],
                     "samples": [
-                        "stop instance",
-                        "start instance",
+                        "start-server",
+                        "stop-server",
+                        "get reservation",
+                        "get active instance count",
+                        "get active instance names",
+                        "get instance id",
                         "start server",
-                        "hello alexa",
-                        "hi alexa",
-                        "hi",
-                        "hey",
-                        "hey alexa"
+                        "stop server",
+                        "get all server names"
                     ]
                 }
             ],
