@@ -1,29 +1,40 @@
 {
-  "skillManifest": {
-    "publishingInformation": {
-      "locales": {
-        "en-GB": {
-          "summary": "Check if my instance is running",
-          "examplePhrases": [
-            "Alexa ask my instance is my instance on",
-            "Alexa ask my instance is my machine on"
-          ],
-          "name": "my_instance",
-          "description": "Check if my EC2 instance is on"
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "skill.development.aws",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "alexa_skill_development_aws",
+                    "slots": [],
+                    "samples": [
+                        "stop instance",
+                        "start instance",
+                        "start server",
+                        "hello alexa",
+                        "hi alexa",
+                        "hi",
+                        "hey",
+                        "hey alexa"
+                    ]
+                }
+            ],
+            "types": []
         }
-      },
-      "isAvailableWorldwide": true,
-      "testingInstructions": "Sample Testing Instructions.",
-      "category": "EDUCATION_AND_REFERENCE",
-      "distributionCountries": []
-    },
-    "apis": {
-      "custom": {
-        "endpoint": {
-          "sourceDir": "custom"
-        }
-      }
-    },
-    "manifestVersion": "1.0"
-  }
+    }
 }
