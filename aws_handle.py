@@ -49,6 +49,6 @@ class EC2Manager(object):
         instance_names = list()
         for reservation in self.reservations:
             instance_list = reservation.get('Instances', [])
-for instance in instance_list:
+        for instance in instance_list:
                 instance_names.append(instance.get('Tags', [{}])[0].get('Value', ''))
-return instance_names
+        return instance_names
