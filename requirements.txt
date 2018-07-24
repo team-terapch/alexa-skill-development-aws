@@ -2,5 +2,3 @@ requests==1.2.0
 Flask==0.10.1
 Boto3==1.7.62
 Flask-ask==0.9.8
-aws_handler==
-aws_cli==
