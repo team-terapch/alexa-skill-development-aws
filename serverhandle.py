@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_ask import Ask, statement, question, session
-from aws_handle import EC2Manager
+from awshandle import EC2Manager
 
 app = Flask(__name__)
 ask = Ask(app, "/")
