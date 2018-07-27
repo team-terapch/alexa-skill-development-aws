@@ -57,11 +57,10 @@ def stop_server(server_name):
 def cancel_request():
     return statement('Always a pleasure working for you. Have a good day')
 
-
 @ask.intent('AMAZON.StopIntent')
 def stop_app():
     return statement('Always a pleasure working for you. Have a good day')
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0",port=5000,debug=True)
