@@ -46,7 +46,7 @@ def start_server(server_name):
 def stop_server(server_name):
     if server_name:
         server_name = server_name.lower()
-    if server_name not in server_name_list:
+    if server_name in server_name_list:
         return question('%s is not available. Please try once more' % server_name)
     else:
         ec2_manager.stop_server(server_name)
