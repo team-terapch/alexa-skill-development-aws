@@ -39,11 +39,11 @@ class EC2Manager(object):
 
     def start_server(self, server_name):
         instance_id = self.get_instance_id(server_name)
-        self.ec2_handler.start_instances(InstanceIds=['instance_id'])
+        self.ec2_handler.start_instances(InstanceIds=['InstanceId'])
 
     def stop_server(self, server_name):
         instance_id = self.get_instance_id(server_name)
-        self.ec2_handler.stop_instances(InstanceIds=['instance_ids'])
+        self.ec2_handler.stop_instances(InstanceIds=['InstanceId'])
 
     def get_all_server_names(self):
         instance_names = list()
@@ -57,8 +57,8 @@ class EC2Manager(object):
     def monitor_server(self,server_name):
         server_name='project'
         instance_id = self.get_instance_id(server_name)
-        self.ec2_handler.monitor_instances(InstanceIds=['instance_id'])
+        self.ec2_handler.monitor_instances(InstanceIds=['InstanceId'])
         
     def unmonitor_server(self, server_name):
         instance_id = self.get_instance_id(server_name)
-        self.ec2_handler.unmonitor_instances(InstanceIds=['instance_id'])
+        self.ec2_handler.unmonitor_instances(InstanceIds=['InstanceId'])
