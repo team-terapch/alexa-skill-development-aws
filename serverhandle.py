@@ -41,7 +41,7 @@ def start_server(server_name):
         ec2_manager.start_server(server_name)
         return question('%s server is ready to serve' % server_name)
 
-`
+
 @ask.intent('StopServerIntent', mapping={'server_name': 'server_name'})
 def stop_server(server_name):
     if server_name:
@@ -54,12 +54,12 @@ def stop_server(server_name):
 
 @ask.intent('MonitorIntent')
 def monitor_server(server_name):
-    ec2_manager.monitor_instances(InstanceIds=['instance_ids'])
+    ec2_manager.monitor_instances(InstanceIds=['InstanceId'])
     return question('%s server is monitored' % server_name)
 
 @ask.intent('UnmonitorIntent')
 def unmonitor_server(server_name):
-    ec2_manager.unmonitor_instances(InstanceIds=['instance_ids'])
+    ec2_manager.unmonitor_instances(InstanceIds=['InstanceId'])
     return question('%s server is unmonitored' % server_name)
     
 @ask.intent('AMAZON.CancelIntent')
