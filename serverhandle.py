@@ -54,13 +54,25 @@ def stop_server(server_name):
 
 @ask.intent('MonitorIntent')
 def monitor_server(server_name):
-    ec2_manager.monitor_instances(InstanceIds=['InstanceId'])
-    return question('%s server is monitored' % server_name)
+    if server_name:
+        server_name = server_name.lower()
+    if server_name in server_name_list:
+        return question('%s is already being monitored. Please try once more' % server_name)
+    else:
+        ec2_manager.monitor_server(server_name)
+        return question('%s server is ready to monitor' % server_name)
+
 
 @ask.intent('UnmonitorIntent')
 def unmonitor_server(server_name):
-    ec2_manager.unmonitor_instances(InstanceIds=['InstanceId'])
-    return question('%s server is unmonitored' % server_name)
+    if server_name:
+        server_name = server_name.lower()
+    if server_name in server_name_list:
+        return question('%s is already unmonitored. Please try once more' % server_name)
+    else:
+        ec2_manager.monitor_server(server_name)
+        return question('%s server is getting unmonitored' % server_name)
+
     
 @ask.intent('AMAZON.CancelIntent')
 def cancel_request():

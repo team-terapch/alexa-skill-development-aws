@@ -55,7 +55,6 @@ class EC2Manager(object):
         
 
     def monitor_server(self,server_name):
-        server_name='project'
         instance_id = self.get_instance_id(server_name)
         self.ec2_handler.monitor_instances(InstanceIds=['i-0dfa82e43e53d4bf7'])
         
