@@ -65,6 +65,7 @@ def monitor_server(server_name):
 
 @ask.intent('UnmonitorIntent')
 def unmonitor_server(server_name):
+    print('+++++++++++++++++',server_name, '+++++++++++++++++++')
     if server_name:
         server_name = server_name.lower()
     if server_name in server_name_list:
