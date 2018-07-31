@@ -71,7 +71,7 @@ def unmonitor_server(server_name):
     if server_name in server_name_list:
         return question('%s is already unmonitored. Please try once more' % server_name)
     else:
-        ec2_manager.monitor_server(server_name)
+        ec2_manager.unmonitor_server(server_name)
         return question('%s server is getting unmonitored' % server_name)
 
     
