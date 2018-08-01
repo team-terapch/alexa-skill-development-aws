@@ -36,10 +36,10 @@ def start_server(server_name):
     if server_name:
         server_name = server_name.lower()
     if server_name not in server_name_list:
-        return question('%s is not available. Please try once more' % server_name)
+        return question('%s is not available. Please try once more' % ec2_manager.get_active_instance_names())
     else:
         ec2_manager.start_server(server_name)
-        return question('%s server is ready to serve' % server_name)
+        return question('%s server is ready to serve' % ec2_manager.get_active_instance_names())
 
 
 @ask.intent('StopServerIntent', mapping={'server_name': 'server_name'})
@@ -47,20 +47,20 @@ def stop_server(server_name):
     if server_name:
         server_name = server_name.lower()
     if server_name in server_name_list:
-        return question('%s is not available. Please try once more' % server_name)
+        return question('%s is not available. Please try once more' % ec2_manager.get_active_instance_names())
     else:
         ec2_manager.stop_server(server_name)
-        return question('%s server has stopped' % server_name)
+        return question('%s server has stopped' % ec2_manager.get_active_instance_names())
 
 @ask.intent('MonitorIntent')
 def monitor_server(server_name):
     if server_name:
         server_name = server_name.lower()
     if server_name in server_name_list:
-        return question('%s is already being monitored. Please try once more' % server_name)
+        return question('%s is already being monitored' % ec2_manager.get_active_instance_names())
     else:
         ec2_manager.monitor_server(server_name)
-        return question('%s server is ready to monitor' % server_name)
+        return question('%s server is ready to monitor' % ec2_manager.get_active_instance_names())
 
 
 @ask.intent('UnmonitorIntent')
@@ -69,10 +69,10 @@ def unmonitor_server(server_name):
     if server_name:
         server_name = server_name.lower()
     if server_name in server_name_list:
-        return question('%s is already unmonitored. Please try once more' % server_name)
+        return question('%s is already unmonitored. Please try once more' % ec2_manager.get_active_instance_names())
     else:
         ec2_manager.unmonitor_server(server_name)
-        return question('%s server is getting unmonitored' % server_name)
+        return question('%s server is getting unmonitored' % ec2_manager.get_active_instance_names())
 
     
 @ask.intent('AMAZON.CancelIntent')
