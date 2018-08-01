@@ -65,4 +65,5 @@ class EC2Manager(object):
     def reboot_server(self, server_name):
         instance_id = self.get_instance_id(server_name)
         self.ec2_handler.reboot_instances(InstanceIds=['i-0dfa82e43e53d4bf7'])
-     
+        
+    
