@@ -76,10 +76,10 @@ def unmonitor_server(server_name):
 @ask.intent('RebootIntent')
 def reboot_server(server_name):
     if server_name:
+        server_name = server_name.lower()
     if server_name not in server_name_list:
         ec2_manager.reboot_server(server_name)
         return question('%s server is getting rebooted' % str(ec2_manager.get_active_instance_names()).replace("]","").replace("[","").replace("'",""))
-
     	
 @ask.intent('AMAZON.CancelIntent')
 def cancel_request():
