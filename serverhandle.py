@@ -60,7 +60,7 @@ def monitor_server(server_name):
         return question('%s is already being monitored' % str(ec2_manager.get_active_instance_names()).replace("]","").replace("[",""))
     else:
         ec2_manager.monitor_server(server_name)
-        return question('%s server is ready to monitor' % ec2_manager.get_active_instance_names())
+        return question('%s server is ready to monitor' % str(ec2_manager.get_active_instance_names()).replace("]","").replace("[",""))
 
 
 @ask.intent('UnmonitorIntent')
