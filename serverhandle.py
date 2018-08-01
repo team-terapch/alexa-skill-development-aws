@@ -18,7 +18,7 @@ def server_handler_app():
 @ask.intent('YesIntent')
 def list_servers():
     return question('Following are the names of active servers. %s. Thats all. Would you like \
-                    to do something else ?' % ','.join(ec2_manager.get_active_instance_names()))
+                    to do something else ?' % ','(ec2_manager.get_active_instance_names()))
 
 
 @ask.intent('CountIntent')
@@ -28,7 +28,7 @@ def count_active_servers():
 
 @ask.intent('ListIntent')
 def list_active_servers():
-    return question('Following are the names of active servers. %s' % '\n'.join(ec2_manager.get_active_instance_names()))
+    return question('Following are the names of active servers. %s' % '\n'(ec2_manager.get_active_instance_names()))
 
 
 @ask.intent('StartServerIntent', mapping={'server_name': 'server_name'})
