@@ -57,7 +57,7 @@ def monitor_server(server_name):
     if server_name:
         server_name = server_name.lower()
     if server_name in server_name_list:
-        return question('%s is already being monitored' str(% ec2_manager.get_active_instance_names()).replace("]","").replace("[",""))
+        return question('%s is already being monitored' % str(ec2_manager.get_active_instance_names()).replace("]","").replace("[",""))
     else:
         ec2_manager.monitor_server(server_name)
         return question('%s server is ready to monitor' % ec2_manager.get_active_instance_names())
