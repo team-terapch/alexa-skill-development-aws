@@ -36,7 +36,7 @@ def start_server(server_name):
     if server_name:
         server_name = server_name.lower()
     if server_name not in server_name_list:
-        return question('%s is not available. Please try once more' % str(ec2_manager.get_active_instance_names()).replace("]","").replace("[","").replace("'",""))
+        return question('%s is not available.Server is already started.Please try once more' % str(ec2_manager.get_active_instance_names()).replace("]","").replace("[","").replace("'",""))
     else:
         ec2_manager.start_server(server_name)
         return question('%s server is ready to serve' % str(ec2_manager.get_active_instance_names()).replace("]","").replace("[","").replace("'",""))
@@ -47,7 +47,7 @@ def stop_server(server_name):
     if server_name:
         server_name = server_name.lower()
     if server_name in server_name_list:
-        return question('%s is not available. Please try once more' % str(ec2_manager.get_active_instance_names()).replace("]","").replace("[","").replace("'",""))
+        return question('%s is not available.Server is already stopped.Please try once more' % str(ec2_manager.get_active_instance_names()).replace("]","").replace("[","").replace("'",""))
     else:
         ec2_manager.stop_server(server_name)
         return question('%s server has stopped' % str(ec2_manager.get_active_instance_names()).replace("]","").replace("[","").replace("'",""))
@@ -65,7 +65,6 @@ def monitor_server(server_name):
 
 @ask.intent('UnmonitorIntent')
 def unmonitor_server(server_name):
-    print('+++++++++++++++++',server_name, '+++++++++++++++++++')
     if server_name:
         server_name = server_name.lower()
     if server_name in server_name_list:
@@ -74,7 +73,14 @@ def unmonitor_server(server_name):
         ec2_manager.unmonitor_server(server_name)
         return question('%s server is getting unmonitored' % str(ec2_manager.get_active_instance_names()).replace("]","").replace("[","").replace("'",""))
 
-    
+@ask.intent('RebootIntent')
+def reboot_server(server_name):
+    if server_name:
+    	server_name=server_name.lower()
+     ec2_manager.reboot_server(server_name)
+        return question('%s server is getting rebooted' % str(ec2_manager.get_active_instance_names()).replace("]","").replace("[","").replace("'",""))
+
+    	
 @ask.intent('AMAZON.CancelIntent')
 def cancel_request():
     return statement('Always a pleasure working for you. Have a good day')
