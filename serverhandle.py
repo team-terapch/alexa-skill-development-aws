@@ -43,10 +43,11 @@ def start_server(server_name):
 
 
 @ask.intent('StopServerIntent', mapping={'server_name': 'server_name'})
-def stop_server(server_name,instance):
+def stop_server(server_name):
     if server_name:
         server_name = server_name.lower()
-    if instance.get('State', {}).get('Name') == 'stopped':
+    if selfp
+    .get('State', {}).get('Name') == 'stopped':
         return question('%s is not available.Server is already stopped.Please try once more' % str(ec2_manager.get_active_instance_names()).replace("]","").replace("[","").replace("'",""))
     else:
         ec2_manager.stop_server(server_name)
