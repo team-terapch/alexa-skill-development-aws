@@ -43,7 +43,7 @@ def start_server(server_name):
 
 
 @ask.intent('StopServerIntent', mapping={'server_name': 'server_name'})
-def stop_server(server_name):
+def stop_server(self,server_name):
     if server_name:
         server_name = server_name.lower()
     if self.get('State', {}).get('Name') == 'stopped':
